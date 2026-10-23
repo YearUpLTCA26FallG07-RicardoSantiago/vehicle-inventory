@@ -48,8 +48,24 @@ public class VehicleInventory {
                                 break;
 
                             case 2:
-                                System.out.println("Search by make and model..");
-                                break;
+                                System.out.println("Search by Make and Model..");
+
+                                System.out.println("Please enter the make and model..");
+                                String searchmakeModel = scanner.nextLine();
+
+                                boolean foundmm = false;
+
+                                for (Vehicle car : cars) {
+                                    if (car != null && car.getMakeModel().equalsIgnoreCase(searchmakeModel)) {
+
+                                        System.out.println(car);
+                                        foundmm = true;
+                                    }
+                                }
+                                if (!foundmm) {
+                                    System.out.println("Vehicle not found.");
+                                }
+                                    break;
 
                             case 3:
                                 System.out.println("Search by price range..");
@@ -57,10 +73,58 @@ public class VehicleInventory {
 
                             case 4:
                                 System.out.println("Search by color..");
+
+                                System.out.println("Please enter the color");
+                                String searchcolor = scanner.nextLine();
+
+                                boolean foundc = false;
+
+                                for (Vehicle car : cars) {
+                                    if (car != null && car.getColor().equalsIgnoreCase(searchcolor)) {
+
+                                        System.out.println(car);
+                                        foundc = true;
+                                    }
+                                }
+                                if (!foundc) {
+                                    System.out.println("Vehicle not found.");
+                                }
                                 break;
 
                             case 5:
                                 System.out.println("Add a new vehicle..");
+
+                                System.out.print("Enter Vehicle ID: ");
+                                long vehicleId = scanner.nextLong();
+                                scanner.nextLine();
+
+                                System.out.print("Enter Make/Model: ");
+                                String makeModel = scanner.nextLine();
+
+                                System.out.print("Enter Color: ");
+                                String color = scanner.nextLine();
+
+                                System.out.print("Enter Odometer Reading: ");
+                                int odometerReading = scanner.nextInt();
+
+                                System.out.print("Enter Price: ");
+                                double price = scanner.nextDouble();
+                                scanner.nextLine();
+
+                                Vehicle newVehicle = new Vehicle(
+                                        vehicleId,
+                                        makeModel,
+                                        color,
+                                        odometerReading,
+                                        price);
+
+                                for (int i = 0; i < cars.length; i++) {
+                                    if (cars[i] == null) {
+                                        cars[i] = newVehicle;
+                                        System.out.println("Vehicle added successfully!");
+                                        break;
+                                    }
+                                }
                                 break;
 
                             case 6:
@@ -72,6 +136,8 @@ public class VehicleInventory {
                        }
 
                             System.out.println();
+
+
 
 
 
