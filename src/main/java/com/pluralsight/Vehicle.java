@@ -1,35 +1,59 @@
 package com.pluralsight;
 
 public class Vehicle {
-    public static void main(String[] args)
+
 
         private long vehicleid;
+        private String makeModel;
+        private String color;
+        private int odometerReading;
+        private double price;
+
+        public Vehicle(long vehicleid, String makeModel, String color, int odometerReading, double price) {
+            this.vehicleid = vehicleid;
+            this.makeModel = makeModel;
+            this.color = color;
+            this.odometerReading = odometerReading;
+            this.price = price;
+        }
 
     public long getVehicleid() {
         return vehicleid;
     }
 
-    private String makeModel;
+    public void setVehicleid(long vehicleid) {
+        this.vehicleid = vehicleid;
+    }
 
     public String getMakeModel() {
         return makeModel;
     }
 
-    private String color;
+    public void setMakeModel(String makeModel) {
+        this.makeModel = makeModel;
+    }
 
     public String getColor() {
         return color;
     }
 
-    private int odometerReading;
+    public void setColor(String color) {
+        this.color = color;
+    }
 
     public int getOdometerReading() {
         return odometerReading;
     }
 
-    private double price;
+    public void setOdometerReading(int odometerReading) {
+        this.odometerReading = odometerReading;
+    }
 
     public double getPrice() {
         return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
     }
 }
